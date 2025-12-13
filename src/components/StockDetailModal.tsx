@@ -24,7 +24,7 @@ export default function StockDetailModal({ stock: initialStock, onClose }: Stock
     const hasChartData = chartData.length > 0;
 
     // Calculate price change for header
-    const isPositive = stock.current_change_pct >= 0;
+    const isPositive = stock.current_change >= 0;
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-200">
@@ -40,7 +40,7 @@ export default function StockDetailModal({ stock: initialStock, onClose }: Stock
                             <div className="text-2xl font-mono font-bold text-gray-900 dark:text-white">₹{stock.current_price.toFixed(2)}</div>
                             <div className={`flex items-center gap-1 text-sm font-medium ${isPositive ? 'text-green-500' : 'text-red-500'}`}>
                                 {isPositive ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
-                                {stock.current_change_abs > 0 ? '+' : ''}{stock.current_change_abs.toFixed(2)} ({stock.current_change_pct.toFixed(2)}%)
+                                {stock.current_change_abs > 0 ? '+' : ''}{stock.current_change_abs.toFixed(2)} ({stock.current_change.toFixed(2)}%)
                             </div>
                         </div>
                     </div>
