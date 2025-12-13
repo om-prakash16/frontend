@@ -100,7 +100,7 @@ export default function Dashboard() {
                     <p className="text-muted-foreground mt-1">Professional F&O analysis with strict trading-day logic</p>
                 </div>
 
-                <MarketStats stocks={stocks} />
+                <MarketStats stocks={stocks || []} />
             </div>
 
             {/* Main Content Area */}
