@@ -32,7 +32,7 @@ export default function GlobalNav() {
     const pathname = usePathname();
     const { theme, setTheme } = useTheme();
     const { user, logout } = useAuth();
-    const { openDrawer, activeFilterCount } = useFilter();
+    const { openDrawer, filterCount } = useFilter();
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
