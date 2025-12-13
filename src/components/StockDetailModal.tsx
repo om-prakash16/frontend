@@ -239,6 +239,5 @@ export default function StockDetailModal({ stock: initialStock, onClose }: Stock
                 </div>
             </div>
         </div>
-        </div >
     );
 }
