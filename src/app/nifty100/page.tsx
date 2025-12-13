@@ -11,7 +11,7 @@ import { useFilter } from "@/context/FilterContext";
 import { globalFilter, enrichStockData } from "@/utils/globalFilter";
 import { Search, RefreshCcw, X } from "lucide-react";
 
-const API_URL = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000") + "/api/v1";
+const API_URL = (process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || "http://localhost:8000") + "/api/v1";
 
 export default function Nifty100Page() {
     const [filters, setFilters] = useState<any>({});

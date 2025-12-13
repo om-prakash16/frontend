@@ -23,7 +23,7 @@ export default function ManageStocks() {
     const fetchStocks = async () => {
         setIsLoading(true);
         try {
-            const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+            const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || 'http://localhost:8000';
             const endpoint = viewMode === 'watchlist'
                 ? `${baseUrl}/api/v1/watchlist`
                 : `${baseUrl}/api/v1/stocks/fno`;
@@ -47,7 +47,7 @@ export default function ManageStocks() {
         if (!symbol) return;
 
         try {
-            const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+            const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || 'http://localhost:8000';
             const res = await fetch(`${baseUrl}/api/v1/admin/stocks`, {
                 method: "POST",
                 headers: {
@@ -74,7 +74,7 @@ export default function ManageStocks() {
         if (!confirm(`Are you sure you want to delete ${symbol}?`)) return;
 
         try {
-            const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+            const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || 'http://localhost:8000';
             const res = await fetch(`${baseUrl}/api/v1/admin/stocks/${symbol}`, {
                 method: "DELETE",
                 headers: {

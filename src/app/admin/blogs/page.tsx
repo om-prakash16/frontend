@@ -31,7 +31,7 @@ export default function ManageBlogs() {
 
     const fetchBlogs = async () => {
         try {
-            const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+            const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || 'http://localhost:8000';
             const res = await fetch(`${baseUrl}/api/v1/blogs`);
             const data = await res.json();
             setBlogs(Array.isArray(data) ? data : []);
@@ -49,7 +49,7 @@ export default function ManageBlogs() {
         setIsLoading(true);
 
         try {
-            const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+            const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || 'http://localhost:8000';
             const res = await fetch(`${baseUrl}/api/v1/admin/blogs`, {
                 method: "POST",
                 headers: {
@@ -78,7 +78,7 @@ export default function ManageBlogs() {
         if (!confirm("Are you sure you want to delete this post?")) return;
 
         try {
-            const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+            const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || 'http://localhost:8000';
             const res = await fetch(`${baseUrl}/api/v1/admin/blogs/${id}`, {
                 method: "DELETE",
                 headers: {

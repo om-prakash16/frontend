@@ -28,7 +28,7 @@ export default function SignIn() {
             formData.append('username', email);
             formData.append('password', password);
 
-            const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+            const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || 'http://localhost:8000';
             const res = await fetch(`${baseUrl}/api/v1/auth/login`, {
                 method: "POST",
                 headers: {

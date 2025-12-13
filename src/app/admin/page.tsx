@@ -16,7 +16,7 @@ export default function AdminDashboard() {
     useEffect(() => {
         const fetchStats = async () => {
             try {
-                const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+                const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || 'http://localhost:8000';
                 const stocksRes = await fetch(`${baseUrl}/api/v1/watchlist`);
                 const stocksData = await stocksRes.json();
 

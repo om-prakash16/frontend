@@ -5,7 +5,7 @@ import axios from "axios";
 import { BrainCircuit, Newspaper, TrendingUp, AlertTriangle, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 
-const API_URL = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000") + "/api/v1";
+const API_URL = (process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || "http://localhost:8000") + "/api/v1";
 
 interface NewsItem {
     title: string;

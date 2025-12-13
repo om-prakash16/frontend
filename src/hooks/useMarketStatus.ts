@@ -19,7 +19,7 @@ export const useMarketStatus = () => {
     return useQuery<MarketStatus>({
         queryKey: ['market-status'],
         queryFn: async () => {
-            const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+            const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || 'http://localhost:8000';
             const response = await axios.get(`${baseUrl}/api/v1/stocks/market-status`);
             return response.data;
         },

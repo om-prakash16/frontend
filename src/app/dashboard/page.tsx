@@ -122,7 +122,7 @@ export default function Dashboard() {
                             </div>
                             <h3 className="text-lg font-semibold text-foreground mb-1">Connection Error</h3>
                             <p className="text-muted-foreground max-w-sm">
-                                Could not connect to the backend server. Please ensure it is running on port 8000.
+                                Could not connect to the backend server. Please ensure the backend is reachable.
                             </p>
                         </div>
                     ) : (
