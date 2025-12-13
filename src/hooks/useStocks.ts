@@ -88,6 +88,12 @@ export interface Stock {
     avg_3day_strength: string;
 
     derived: any; // For frontend calculated fields
+
+    // Detailed fields (optional as they may not be in list view)
+    chart_data?: ChartDataPoint[];
+
+    // Mismatch fix for StockDetailModal which expects rsi_status but interface has rsi_zone
+    rsi_status?: "overbought" | "oversold" | "neutral";
 }
 
 export interface StockStrength extends Stock { }
