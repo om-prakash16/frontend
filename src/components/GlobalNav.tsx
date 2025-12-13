@@ -24,7 +24,8 @@ const navLinks = [
             { name: "Heatmap", href: "/advanced/heatmap", icon: LayoutGrid },
         ]
     },
-    { name: "News", href: "/news", icon: Newspaper },
+    // News removed for performance
+    // { name: "News", href: "/news", icon: Newspaper },
     { name: "Blogs", href: "/blog", icon: FileText },
 ];
 
@@ -43,8 +44,9 @@ export default function GlobalNav() {
     useEffect(() => {
         const fetchIndices = async () => {
             try {
-                // Use relative path to avoid CORS/Localhost issues
-                const res = await fetch("/api/v1/advanced/indices");
+                // Use absolute path with sanitized base URL
+                const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || "http://localhost:8000";
+                const res = await fetch(`${baseUrl}/api/v1/advanced/indices`);
                 if (res.ok) {
                     const data = await res.json();
                     setIndices(data);
