@@ -205,10 +205,12 @@ export default function StockDetailModal({ stock: initialStock, onClose }: Stock
                                         stock.indicators.trend === 'downtrend' ? 'bg-red-500/10 text-red-500' : 'bg-gray-500/10 text-gray-500 dark:text-gray-400'
                                         }`}>{stock.indicators.trend}</span>
                                 </div>
-                                <span className="text-sm text-gray-500 dark:text-gray-400">RSI Status</span>
-                                <span className={`text-sm font-medium ${stock.indicators.rsi_zone === 'overbought' ? 'text-red-500 dark:text-red-400' :
-                                    stock.indicators.rsi_zone === 'oversold' ? 'text-green-500 dark:text-green-400' : 'text-gray-500 dark:text-gray-300'
-                                    }`}>{stock.indicators.rsi_zone.replace('_', ' ')}</span>
+                                <div className="flex justify-between items-center">
+                                    <span className="text-sm text-gray-500 dark:text-gray-400">RSI Status</span>
+                                    <span className={`text-sm font-medium ${stock.indicators.rsi_zone === 'overbought' ? 'text-red-500 dark:text-red-400' :
+                                        stock.indicators.rsi_zone === 'oversold' ? 'text-green-500 dark:text-green-400' : 'text-gray-500 dark:text-gray-300'
+                                        }`}>{stock.indicators.rsi_zone.replace('_', ' ')}</span>
+                                </div>
                             </div>
                             <div className="flex justify-between items-center">
                                 <span className="text-sm text-gray-500 dark:text-gray-400">MACD Signal</span>
