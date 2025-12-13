@@ -7,7 +7,7 @@ interface FilterContextType {
     openDrawer: () => void;
     closeDrawer: () => void;
     toggleDrawer: () => void;
-    activeFilterCount: number;
+    filterCount: number;
     setFilterCount: (count: number) => void;
 }
 
@@ -15,7 +15,7 @@ const FilterContext = createContext<FilterContextType | undefined>(undefined);
 
 export function FilterProvider({ children }: { children: ReactNode }) {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-    const [activeFilterCount, setActiveFilterCount] = useState(0);
+    const [filterCount, setActiveFilterCount] = useState(0);
 
     const openDrawer = () => setIsDrawerOpen(true);
     const closeDrawer = () => setIsDrawerOpen(false);
@@ -29,7 +29,7 @@ export function FilterProvider({ children }: { children: ReactNode }) {
                 openDrawer,
                 closeDrawer,
                 toggleDrawer,
-                activeFilterCount,
+                filterCount,
                 setFilterCount,
             }}
         >
