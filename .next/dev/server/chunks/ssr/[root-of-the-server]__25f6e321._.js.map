@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///E:/Mr%20Aakash/frontend/src/providers/QueryProvider.tsx"],"sourcesContent":["\"use client\";\r\n\r\nimport { QueryClient, QueryClientProvider } from \"@tanstack/react-query\";\r\nimport { useState } from \"react\";\r\n\r\nexport default function QueryProvider({ children }: { children: React.ReactNode }) {\r\n    const [queryClient] = useState(() => new QueryClient({\r\n        defaultOptions: {\r\n            queries: {\r\n                staleTime: 5000,\r\n                refetchInterval: 5000,\r\n            },\r\n        },\r\n    }));\r\n\r\n    return (\r\n        <QueryClientProvider client={queryClient}>\r\n            {children}\r\n        </QueryClientProvider>\r\n    );\r\n}\r\n"],"names":[],"mappings":";;;;;AAEA;AAAA;AACA;AAHA;;;;AAKe,SAAS,cAAc,EAAE,QAAQ,EAAiC;IAC7E,MAAM,CAAC,YAAY,GAAG,IAAA,iNAAQ,EAAC,IAAM,IAAI,4LAAW,CAAC;YACjD,gBAAgB;gBACZ,SAAS;oBACL,WAAW;oBACX,iBAAiB;gBACrB;YACJ;QACJ;IAEA,qBACI,8OAAC,6MAAmB;QAAC,QAAQ;kBACxB;;;;;;AAGb"}}]
-}
