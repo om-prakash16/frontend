@@ -205,39 +205,38 @@ export default function StockDetailModal({ stock: initialStock, onClose }: Stock
                                         stock.indicators.trend === 'downtrend' ? 'bg-red-500/10 text-red-500' : 'bg-gray-500/10 text-gray-500 dark:text-gray-400'
                                         }`}>{stock.indicators.trend}</span>
                                 </div>
-                                <div className="flex justify-between items-center">
-                                    <span className="text-sm text-gray-500 dark:text-gray-400">RSI Status</span>
-                                    <span className={`text-sm font-medium ${stock.indicators.rsi_status === 'overbought' ? 'text-red-500 dark:text-red-400' :
-                                        stock.indicators.rsi_status === 'oversold' ? 'text-green-500 dark:text-green-400' : 'text-gray-500 dark:text-gray-300'
-                                        }`}>{stock.indicators.rsi_status.replace('_', ' ')}</span>
-                                </div>
-                                <div className="flex justify-between items-center">
-                                    <span className="text-sm text-gray-500 dark:text-gray-400">MACD Signal</span>
-                                    <span className={`text-sm font-medium ${stock.indicators.macd_status.includes('bullish') ? 'text-green-500 dark:text-green-400' :
-                                        stock.indicators.macd_status.includes('bearish') ? 'text-red-500 dark:text-red-400' : 'text-gray-500 dark:text-gray-300'
-                                        }`}>{stock.indicators.macd_status.replace('_', ' ')}</span>
-                                </div>
+                                <span className="text-sm text-gray-500 dark:text-gray-400">RSI Status</span>
+                                <span className={`text-sm font-medium ${stock.indicators.rsi_zone === 'overbought' ? 'text-red-500 dark:text-red-400' :
+                                    stock.indicators.rsi_zone === 'oversold' ? 'text-green-500 dark:text-green-400' : 'text-gray-500 dark:text-gray-300'
+                                    }`}>{stock.indicators.rsi_zone.replace('_', ' ')}</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <span className="text-sm text-gray-500 dark:text-gray-400">MACD Signal</span>
+                                <span className={`text-sm font-medium ${stock.indicators.macd_status.includes('bullish') ? 'text-green-500 dark:text-green-400' :
+                                    stock.indicators.macd_status.includes('bearish') ? 'text-red-500 dark:text-red-400' : 'text-gray-500 dark:text-gray-300'
+                                    }`}>{stock.indicators.macd_status.replace('_', ' ')}</span>
                             </div>
                         </div>
+                    </div>
 
-                        {/* Strength Meter */}
-                        <div className="bg-gray-50 dark:bg-slate-800/50 rounded-xl p-6 border border-gray-200 dark:border-slate-700">
-                            <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">Market Sentiment</h3>
-                            <div className="flex justify-between text-xs mb-2">
-                                <span className="text-green-400">Buyers {stock.indicators.buyer_strength_score}%</span>
-                                <span className="text-red-400">Sellers {stock.indicators.seller_strength_score}%</span>
-                            </div>
-                            <div className="w-full h-2 bg-gray-200 dark:bg-slate-700 rounded-full overflow-hidden flex mb-2">
-                                <div className="bg-green-500 h-full transition-all duration-500" style={{ width: `${stock.indicators.buyer_strength_score}%` }} />
-                                <div className="bg-red-500 h-full transition-all duration-500" style={{ width: `${stock.indicators.seller_strength_score}%` }} />
-                            </div>
-                            <div className="text-center text-sm font-medium text-gray-900 dark:text-white">
-                                {stock.indicators.strength_label}
-                            </div>
+                    {/* Strength Meter */}
+                    <div className="bg-gray-50 dark:bg-slate-800/50 rounded-xl p-6 border border-gray-200 dark:border-slate-700">
+                        <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">Market Sentiment</h3>
+                        <div className="flex justify-between text-xs mb-2">
+                            <span className="text-green-400">Buyers {stock.indicators.buyer_strength_score}%</span>
+                            <span className="text-red-400">Sellers {stock.indicators.seller_strength_score}%</span>
+                        </div>
+                        <div className="w-full h-2 bg-gray-200 dark:bg-slate-700 rounded-full overflow-hidden flex mb-2">
+                            <div className="bg-green-500 h-full transition-all duration-500" style={{ width: `${stock.indicators.buyer_strength_score}%` }} />
+                            <div className="bg-red-500 h-full transition-all duration-500" style={{ width: `${stock.indicators.seller_strength_score}%` }} />
+                        </div>
+                        <div className="text-center text-sm font-medium text-gray-900 dark:text-white">
+                            {stock.indicators.strength_label}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        </div >
     );
 }
