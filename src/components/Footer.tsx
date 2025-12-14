@@ -51,8 +51,8 @@ export default function Footer() {
                     <div>
                         <h3 className="font-semibold text-foreground mb-4">Connect</h3>
                         <div className="flex flex-col gap-3 text-sm text-muted-foreground mb-6">
-                            <a href="mailto:ramuser22@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
-                                <Mail className="w-4 h-4" /> ramuser22@gmail.com
+                            <a href="mailto:amitprofficial@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
+                                <Mail className="w-4 h-4" /> amitprofficial@gmail.com
                             </a>
                             <a href="https://wa.me/918884055695" className="flex items-center gap-2 hover:text-primary transition-colors">
                                 <Phone className="w-4 h-4" /> +91 91627 07792
